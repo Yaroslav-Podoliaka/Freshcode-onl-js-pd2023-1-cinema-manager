@@ -1,0 +1,22 @@
+.studio-logo, .item-img {
+  border-radius: 50%;
+  border: 1px solid white;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: 50% 10%;
+  }
+  .studio-logo {
+    object-fit: fit;
+  }
+  .studio-header {
+    text-align: center;
+  }
+  .studios-container {
+    list-style: none;
+  }
+  .title-link {
+    text-transform: capitalize;
+    min-width: 300px;
+  }
