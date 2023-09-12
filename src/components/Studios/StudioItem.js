@@ -28,7 +28,7 @@ function StudioItem() {
         <h1>{studio.title}</h1>
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
-        <img src={studio.image} alt="studio-viev" className="item-img" />
+        <img src={studio.logo} alt="studio-viev" className="item-img" />
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
         <Stack>

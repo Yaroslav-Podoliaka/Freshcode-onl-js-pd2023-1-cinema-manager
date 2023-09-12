@@ -25,7 +25,7 @@ function DirectorItem() {
         xs={12}
         className="director-header"
       >
-        <h1>{director.fillName}</h1>
+        <h1>{director.fullName}</h1>
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
         <img src={director.image} alt="director-viev" className="item-img" />
