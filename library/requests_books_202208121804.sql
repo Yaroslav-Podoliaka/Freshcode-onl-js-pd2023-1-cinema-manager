@@ -1,0 +1,55 @@
+INSERT INTO public.requests_books (request_id,book_id) VALUES
+	 (1,11),
+	 (1,12),
+	 (2,13),
+	 (2,14),
+	 (3,15),
+	 (3,16),
+	 (4,17),
+	 (4,18),
+	 (5,19),
+	 (5,20);
+INSERT INTO public.requests_books (request_id,book_id) VALUES
+	 (6,21),
+	 (6,22),
+	 (7,23),
+	 (7,24),
+	 (8,25),
+	 (9,26),
+	 (9,27),
+	 (10,19),
+	 (10,20),
+	 (11,14);
+INSERT INTO public.requests_books (request_id,book_id) VALUES
+	 (11,13),
+	 (12,22),
+	 (13,18),
+	 (14,15),
+	 (11,20),
+	 (1,11),
+	 (1,12),
+	 (2,13),
+	 (2,14),
+	 (3,15);
+INSERT INTO public.requests_books (request_id,book_id) VALUES
+	 (3,16),
+	 (4,17),
+	 (4,18),
+	 (5,19),
+	 (5,20),
+	 (6,21),
+	 (6,22),
+	 (7,23),
+	 (7,24),
+	 (8,25);
+INSERT INTO public.requests_books (request_id,book_id) VALUES
+	 (9,26),
+	 (9,27),
+	 (10,19),
+	 (10,20),
+	 (11,14),
+	 (11,13),
+	 (12,22),
+	 (13,18),
+	 (14,15),
+	 (11,20);
