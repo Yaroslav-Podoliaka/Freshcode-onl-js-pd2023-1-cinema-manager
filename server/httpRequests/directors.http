@@ -1,0 +1,6 @@
+GET http://localhost:5000/dirctors
+
+###
+
+GET http://localhost:5000/dirctors/1
+

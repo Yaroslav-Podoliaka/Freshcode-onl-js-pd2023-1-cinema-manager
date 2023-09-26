@@ -1,0 +1,5 @@
+GET http://localhost:5000/movies
+
+###
+
+GET http://localhost:5000/movies/1
