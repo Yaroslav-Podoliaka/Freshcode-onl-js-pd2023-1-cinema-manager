@@ -1,6 +1,6 @@
-GET http://localhost:5000/dirctors
+GET http://localhost:5000/directors
 
 ###
 
-GET http://localhost:5000/dirctors/1
+GET http://localhost:5000/directors/1
 
