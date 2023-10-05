@@ -1,6 +1,32 @@
 // const yup = require('yup');
 // const createError = require('http-errors');
 const { PERSON_VALIDATION_SCHEMA } = require('../utils/validationSchemas');
+const { TITLE_VALIDATION_SCHEMA } = require('../utils/validationSchemas');
+const { LOCATION_VALIDATION_SCHEMA } = require('../utils/validationSchemas');
+
+module.exports.validateTitle = async (req, res, next) => {
+  const { body } = req;
+  try {
+    const validatedTitle = await TITLE_VALIDATION_SCHEMA
+    .validate(body,{abortEarly: false});
+    req.body = validatedTitle;
+    next();
+  } catch (error) {
+    next(`Error is: ${error.errors}, ${error.name}`);
+  }
+};
+
+module.exports.validateLocation = async (req, res, next) => {
+  const { body } = req;
+  try {
+    const validatedLocation = await LOCATION_VALIDATION_SCHEMA
+    .validate(body,{abortEarly: false});
+    req.body = validatedLocation;
+    next();
+  } catch (error) {
+    next(`Error is: ${error.errors}, ${error.name}`);
+  }
+};
 
 module.exports.validatePerson = async (req, res, next) => {
   const { body } = req;

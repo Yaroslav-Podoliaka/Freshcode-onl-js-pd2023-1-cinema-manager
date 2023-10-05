@@ -1,11 +1,12 @@
 const Router = require('express');
 const genreControllers = require('../controllers/genreController');
+const { validateTitle } = require('../middleware/validate.mw');
 
 const router = new Router();
 
 router
 .route('/')
-.post(genreControllers.createGenre)
+.post(validateTitle, genreControllers.createGenre)
 .get(genreControllers.getGenres)
 .put(genreControllers.updateGenre);
 

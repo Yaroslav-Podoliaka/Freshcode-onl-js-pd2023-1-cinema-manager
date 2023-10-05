@@ -7,15 +7,14 @@ class MovieController {
       const movies = await db.query(
         `SELECT
         movie_id,
-        title,
+        movies.title,
         relise_year,
-        poster,
-        gen.title AS genre
-        FROM movies
-        JOIN genres AS gen
-        USING (genre_id),
+        movies.poster,
+        gen.title AS genre,
         stud.title AS studio
         FROM movies
+        JOIN genres AS gen
+        USING (genre_id)
         JOIN studios AS stud
         USING (studio_id)
         ORDER BY movie_id`
@@ -33,15 +32,14 @@ class MovieController {
       const movie = await db.query(
         `SELECT
         movie_id,
-        title,
+        movies.title,
         relise_year,
-        poster,
-        genre.title AS genre
-        FROM movies
-        JOIN genres AS genre
-        USING (genre_id),
+        movies.poster,
+        genre.title AS genre,
         studio.title AS studio
         FROM movies
+        JOIN genres AS genre
+        USING (genre_id)
         JOIN studios AS studio
         USING (studio_id)
         WHERE movie_id=$1`,

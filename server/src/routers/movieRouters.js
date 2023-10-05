@@ -1,11 +1,12 @@
 const Router = require('express');
 const movieControllers = require('../controllers/movieController');
+const { validateTitle } = require('../middleware/validate.mw');
 
 const router = new Router();
 
 router
 .route('/')
-.post(movieControllers.createMovie)
+.post(validateTitle, movieControllers.createMovie)
 .get(movieControllers.getMovies)
 .put(movieControllers.updateMovie);
 

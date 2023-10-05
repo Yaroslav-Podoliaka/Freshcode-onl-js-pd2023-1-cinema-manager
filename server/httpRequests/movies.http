@@ -28,10 +28,10 @@ Content-Type: application/json
   "genre": "Fantazy",
   "studio": "20th Century Studios",
   "poster": null,
-  "movie_id": 
+  "movie_id": 6
 }
 
 ###
 
-DELETE http://localhost:5000/api/movies/4
+DELETE http://localhost:5000/api/movies/6
 Content-Type:  application/json
