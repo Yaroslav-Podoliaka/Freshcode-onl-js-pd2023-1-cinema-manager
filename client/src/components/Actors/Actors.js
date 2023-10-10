@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllActors } from "../../store/slices/actorsSlice";
-import { Box, Button } from "@mui/material";
 import { Link, Navigate, Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Box, Button } from "@mui/material";
+import { getAllActors } from "../../store/slices/actorsSlice";
 import ActorsList from "./ActorsList";
 import ActorItem from "./ActorItem";
 
@@ -33,8 +33,8 @@ function Actors() {
       </Button>
       <Routes>
         <Route path="/" element={<ActorsList actors={actors} />} />
-        <Route path=":id" element={<ActorItem />} />
-        <Route path="add" element={<Navigate to="/actors/add/:id" />} />
+        <Route path=":actorId" element={<ActorItem />} />
+        <Route path="add" element={<Navigate to="/actors/add/:actorId" />} />
       </Routes>
     </Box>
   );

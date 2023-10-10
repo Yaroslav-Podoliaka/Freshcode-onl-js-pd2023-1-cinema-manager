@@ -6,17 +6,17 @@ class DirectorController {
     try {
       const directors = await db.query(
         `SELECT
+        director_id,
         full_name,
         birth_year,
         death_year,
-        director_id,
+        poster,
         nat.description AS nationality
         FROM directors
         JOIN nationalities AS nat
         USING (nationality_id)
         ORDER BY director_id`
       );
-      console.log(directors.rows);
       res.json(directors.rows);
     } catch (error) {
       console.log(error);
@@ -40,7 +40,6 @@ class DirectorController {
         WHERE director_id=$1`,
         [directorId]
       );
-      console.log(director.rows[0]);
       res.json(director.rows[0]);
     } catch (error) {
       console.log(error);
@@ -73,6 +72,7 @@ class DirectorController {
       res.json(newDirector.rows[0]);
     } catch (error) {
       console.log(error);
+      res.status(500).send(error);
     }
   }
 

@@ -8,9 +8,11 @@ import "./DirectorItem.css";
 function DirectorItem() {
   const directors = useSelector((state) => state.directorsList.directors);
 
-  const { id } = useParams();
+  const { directorId } = useParams();
 
-  const producer = directors.find((director) => director.id === Number(id));
+  const producer = directors.find(
+    (director) => director.director_id === Number(directorId)
+  );
 
   const director = producer ? producer : emptyDirector;
 
@@ -25,18 +27,21 @@ function DirectorItem() {
         xs={12}
         className="director-header"
       >
-        <h1>{director.fullName}</h1>
+        <h1>{director.full_name}</h1>
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
-        <img src={director.image} alt="director-viev" className="item-img" />
+        <img src={director.poster} alt="director-viev" className="item-img" />
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
         <Stack>
           <h2>Biography</h2>
+          {director.birth_year}
+          <h2>Nationality</h2>
+          {director.nationality}
           <h3>Filmography</h3>
-          {director.films.map((film, id) => (
+          {/* {director.films.map((film, id) => (
             <p key={id}>{film}</p>
-          ))}
+          ))} */}
         </Stack>
       </Grid>
     </Grid>

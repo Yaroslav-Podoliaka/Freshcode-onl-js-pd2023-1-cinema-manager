@@ -1,12 +1,12 @@
 const Router = require('express');
 const locationControllers = require('../controllers/locationController');
-const { validateLocation } = require('../middleware/validate.mw');
+const { validate } = require('../middleware');
 
 const router = new Router();
 
 router
 .route('/')
-.post(validateLocation, locationControllers.createLocation)
+.post(validate.validateLocation, locationControllers.createLocation)
 .get(locationControllers.getLocations)
 .put(locationControllers.updateLocation);
 

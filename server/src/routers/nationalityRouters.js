@@ -1,12 +1,12 @@
 const Router = require('express');
 const nationalityControllers = require('../controllers/nationalityController');
-const { validateTitle } = require('../middleware/validate.mw');
+const { validate } = require('../middleware');
 
 const router = new Router();
 
 router
 .route('/')
-.post(validateTitle, nationalityControllers.createNationality)
+.post(validate.validateTitle, nationalityControllers.createNationality)
 .get(nationalityControllers.getNationalities)
 .put(nationalityControllers.updateNationality);
 

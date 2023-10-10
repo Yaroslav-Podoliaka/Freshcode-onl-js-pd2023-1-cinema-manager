@@ -33,8 +33,8 @@ function Movies() {
       </Button>
       <Routes>
         <Route path="/" element={<MoviesList movies={movies} />} />
-        <Route path=":id" element={<MovieItem />} />
-        <Route path="add" element={<Navigate to="/movies/add/:id" />} />
+        <Route path=":movieId" element={<MovieItem />} />
+        <Route path="add" element={<Navigate to="/movies/add/:movieId" />} />
       </Routes>
     </Box>
   );

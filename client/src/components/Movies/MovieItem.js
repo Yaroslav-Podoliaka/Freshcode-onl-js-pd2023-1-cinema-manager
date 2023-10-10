@@ -8,9 +8,9 @@ import "./MovieItem.css";
 function MovieItem() {
   const movies = useSelector((state) => state.moviesList.movies);
 
-  const { id } = useParams();
+  const { movieId } = useParams();
 
-  const film = movies.find((movie) => movie.id === Number(id));
+  const film = movies.find((movie) => movie.movie_id === Number(movieId));
 
   const movie = film ? film : emptyMovie;
 
@@ -32,8 +32,11 @@ function MovieItem() {
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
         <Stack>
-          <h2>Movie definition</h2>
-          <h3>Actors</h3>
+          <h2>Genre</h2>
+          {movie.genre}
+          <h2>Relise Year</h2>
+          {movie.relise_year}
+          {/* <h3>Actors</h3>
           {movie.stars.map((star, id) => (
             <p key={id}>{star}</p>
           ))}
@@ -44,7 +47,10 @@ function MovieItem() {
           <h3>Studios</h3>
           {movie.companies.map((company, id) => (
             <p key={id}>{company}</p>
-          ))}
+          ))} */}
+          <h2>Studio</h2>
+          {movie.studio}
+          <h3>Description</h3>
         </Stack>
       </Grid>
     </Grid>

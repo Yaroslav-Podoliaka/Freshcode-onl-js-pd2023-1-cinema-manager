@@ -1,12 +1,12 @@
 const Router = require('express');
 const actorControllers = require('../controllers/actorController');
-const { validatePerson } = require('../middleware/validate.mw');
+const { validate } = require('../middleware');
 
 const router = new Router();
 
 router
 .route('/')
-.post(validatePerson, actorControllers.createActor)
+.post(validate.validatePerson, actorControllers.createActor)
 .get(actorControllers.getActors)
 .put(actorControllers.updateActor);
 

@@ -44,7 +44,6 @@ class ActorController {
         USING (nationality_id)
         ORDER BY actor_id`
       );
-      console.log(actors.rows);
       res.json(actors.rows);
     } catch (error) {
       console.log(error);
@@ -68,7 +67,6 @@ class ActorController {
         WHERE actor_id=$1`,
         [actorId]
       );
-      console.log(actor.rows[0]);
       res.json(actor.rows[0]);
     } catch (error) {
       console.log(error);

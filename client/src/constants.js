@@ -1,32 +1,37 @@
-export const BASE_URL = "http://localhost:5000";
+export const BASE_URL = "http://localhost:5000/api";
 
 export const emptyMovie = {
   title: "",
-  producers: [""],
-  stars: [""],
-  companies: [""],
-  poster: [""],
+  relise_year: "",
+  genre: "",
+  studio: "",
+  // producers: [""],
+  // stars: [""],
+  // companies: [""],
+  poster: "",
 };
 
 export const emptyActor = {
-  films: [""],
-  fullName: "",
-  birthYear: "",
+  // films: [""],
+  full_name: "",
+  birth_year: "",
+  death_year: null,
   nationality: "",
-  image: [""],
+  poster: "",
 };
 
 export const emptyDirector = {
-  films: [""],
-  fullName: "",
-  birthYear: "",
+  // films: [""],
+  full_name: "",
+  birth_year: "",
+  death_year: null,
   nationality: "",
-  image: [""],
+  poster: "",
 };
 
 export const emptyStudio = {
   title: "",
+  year_foundation: "",
   location: "",
-  foundationYear: "",
-  logo: [""],
+  poster: "",
 };

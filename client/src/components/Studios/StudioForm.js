@@ -16,15 +16,18 @@ import { createStudio, updateStudio } from "../../store/slices/studiosSlice";
 function StudioForm() {
   const dispatch = useDispatch();
 
-  const {
-    studiosList: { studios },
-  } = useSelector((state) => state);
+  const studios = useSelector((state) => state.studiosList.studios);
+  // const {
+  //   studiosList: { studios },
+  // } = useSelector((state) => state);
 
   const { id } = useParams();
 
   const navigate = useNavigate();
 
-  const currentStudio = studios.find((studio) => studio.id === parseInt(id));
+  const currentStudio = studios.find(
+    (studio) => studio.studio_id === parseInt(id)
+  );
 
   const schema = Yup.object().shape({
     title: Yup.string().required("Title is required"),
@@ -33,7 +36,7 @@ function StudioForm() {
   const goHome = () => navigate("/studios");
 
   const onStudioSubmit = (values) => {
-    !values.id
+    !values.studio_id
       ? dispatch(createStudio(values))
       : dispatch(updateStudio(values));
   };
@@ -90,20 +93,24 @@ function StudioForm() {
               pl: "10px",
             }}
           >
-            <label htmlFor="foundationYear" className="label">
+            <label htmlFor="year_foundation" className="label">
               Foundation Year
             </label>
-            <Field name="foundationYear" style={{ fontSize: "30px" }} />
+            <Field name="year_foundation" style={{ fontSize: "30px" }} />
           </Stack>
-          <ErrorMessage name="foundationYear">
+          <ErrorMessage name="year_foundation">
             {(msg) => <div className="error">{msg}</div>}
           </ErrorMessage>
         </Stack>
         <Stack direction="row" spacing={2} className="field-container">
-          <label htmlFor="logo" className="label">
-            Logo
+          <label htmlFor="poster" className="label">
+            Poster
           </label>
-          <Field name="logo" as="textarea" style={{ fontSize: "20px" }}></Field>
+          <Field
+            name="poster"
+            as="textarea"
+            style={{ fontSize: "20px" }}
+          ></Field>
         </Stack>
         <Stack direction="row" spacing={8} justifyContent="center">
           <Button

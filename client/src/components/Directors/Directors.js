@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllDirectors } from "../../store/slices/directorsSlice";
-import { Box, Button } from "@mui/material";
 import { Link, Navigate, Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Box, Button } from "@mui/material";
+import { getAllDirectors } from "../../store/slices/directorsSlice";
 import DirectorsList from "./DirectorsList";
 import DirectorItem from "./DirectorItem";
 
@@ -33,8 +33,11 @@ function Directors() {
       </Button>
       <Routes>
         <Route path="/" element={<DirectorsList directors={directors} />} />
-        <Route path=":id" element={<DirectorItem />} />
-        <Route path="add" element={<Navigate to="/directors/add/:id" />} />
+        <Route path=":directorId" element={<DirectorItem />} />
+        <Route
+          path="add"
+          element={<Navigate to="/directors/add/:directorId" />}
+        />
       </Routes>
     </Box>
   );

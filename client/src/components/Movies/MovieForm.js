@@ -1,13 +1,13 @@
 import React from "react";
 import * as Yup from "yup";
-import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
+// import { nanoid } from "nanoid";
+import { ErrorMessage, Field, /*FieldArray,*/ Form, Formik } from "formik";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+// import AddIcon from "@mui/icons-material/Add";
+// import RemoveIcon from "@mui/icons-material/Remove";
 import SaveIcon from "@mui/icons-material/Save";
 import ClearIcon from "@mui/icons-material/Clear";
 import KeyboardReturnIcon from "@mui/icons-material/KeyboardReturn";
@@ -17,17 +17,16 @@ import { createMovie, updateMovie } from "../../store/slices/moviesSlice";
 function MovieForm() {
   const dispatch = useDispatch();
 
-  const {
-    moviesList: { movies },
-    // actorsList: {actors},
-    // directorsList: {directors},
-  } = useSelector((state) => state);
+  const movies = useSelector((state) => state.moviesList.movies);
+  // const {
+  //   moviesList: { movies },
+  // } = useSelector((state) => state);
 
   const { id } = useParams();
 
   const navigate = useNavigate();
 
-  const currentMovie = movies.find((movie) => movie.id === parseInt(id));
+  const currentMovie = movies.find((movie) => movie.movie_id === parseInt(id));
 
   const schema = Yup.object().shape({
     title: Yup.string().required("Title is required"),
@@ -36,7 +35,9 @@ function MovieForm() {
   const goHome = () => navigate("/movies");
 
   const onMovieSubmit = (values) => {
-    !values.id ? dispatch(createMovie(values)) : dispatch(updateMovie(values));
+    !values.movie_id
+      ? dispatch(createMovie(values))
+      : dispatch(updateMovie(values));
   };
 
   const renderForm = ({ isValid, values }) => {
@@ -62,7 +63,64 @@ function MovieForm() {
             {(msg) => <div className="error">{msg}</div>}
           </ErrorMessage>
         </Stack>
-        <fieldset className="items-container">
+        <Stack className="field-container">
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{
+              bgcolor: "primary.dark",
+              color: "white",
+              pl: "10px",
+            }}
+          >
+            <label htmlFor="relise_year" className="label">
+              Title
+            </label>
+            <Field name="relise_year" style={{ fontSize: "30px" }} />
+          </Stack>
+          <ErrorMessage name="relise_year">
+            {(msg) => <div className="error">{msg}</div>}
+          </ErrorMessage>
+        </Stack>
+        <Stack className="field-container">
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{
+              bgcolor: "primary.dark",
+              color: "white",
+              pl: "10px",
+            }}
+          >
+            <label htmlFor="genre" className="label">
+              Title
+            </label>
+            <Field name="genre" style={{ fontSize: "30px" }} />
+          </Stack>
+          <ErrorMessage name="genre">
+            {(msg) => <div className="error">{msg}</div>}
+          </ErrorMessage>
+        </Stack>
+        <Stack className="field-container">
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{
+              bgcolor: "primary.dark",
+              color: "white",
+              pl: "10px",
+            }}
+          >
+            <label htmlFor="studio" className="label">
+              Title
+            </label>
+            <Field name="studio" style={{ fontSize: "30px" }} />
+          </Stack>
+          <ErrorMessage name="studio">
+            {(msg) => <div className="error">{msg}</div>}
+          </ErrorMessage>
+        </Stack>
+        {/* <fieldset className="items-container">
           <legend>Actors</legend>
           <FieldArray name="stars">
             {(fieldArrayProps) => {
@@ -170,7 +228,7 @@ function MovieForm() {
               );
             }}
           </FieldArray>
-        </fieldset>
+        </fieldset> */}
         <Stack direction="row" spacing={2} className="field-container">
           <label htmlFor="poster" className="label">
             Poster

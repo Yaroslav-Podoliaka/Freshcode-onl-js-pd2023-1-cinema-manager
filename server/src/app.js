@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
@@ -14,6 +15,7 @@ const router = require('./routers');
 // const movieControllers = require('./controllers/movieController');
 // const studioControllers = require('./controllers/studioController');
 
+app.use(cors());
 app.use(express.json());
 
 // Routers

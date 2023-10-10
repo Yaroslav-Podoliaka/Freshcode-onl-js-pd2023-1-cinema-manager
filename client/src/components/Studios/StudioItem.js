@@ -8,9 +8,11 @@ import "./StudioItem.css";
 function StudioItem() {
   const studios = useSelector((state) => state.studiosList.studios);
 
-  const { id } = useParams();
+  const { studioId } = useParams();
 
-  const company = studios.find((studio) => studio.id === Number(id));
+  const company = studios.find(
+    (studio) => studio.studio_id === Number(studioId)
+  );
 
   const studio = company ? company : emptyStudio;
 
@@ -28,11 +30,15 @@ function StudioItem() {
         <h1>{studio.title}</h1>
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
-        <img src={studio.logo} alt="studio-viev" className="item-img" />
+        <img src={studio.poster} alt="studio-viev" className="item-img" />
       </Grid>
       <Grid item lg={6} md={6} xl={6} sm={6} xs={6}>
         <Stack>
-          <h2>History</h2>
+          <h2>Year fondation</h2>
+          {studio.year_fondation}
+          <h2>Location</h2>
+          {studio.location}
+          <h3>History</h3>
         </Stack>
       </Grid>
     </Grid>

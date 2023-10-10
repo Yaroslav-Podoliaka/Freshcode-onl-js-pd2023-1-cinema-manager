@@ -33,8 +33,8 @@ function Studios() {
       </Button>
       <Routes>
         <Route path="/" element={<StudiosList studios={studios} />} />
-        <Route path=":id" element={<StudioItem />} />
-        <Route path="add" element={<Navigate to="/studios/add/id" />} />
+        <Route path=":studioId" element={<StudioItem />} />
+        <Route path="add" element={<Navigate to="/studios/add/studioId" />} />
       </Routes>
     </Box>
   );

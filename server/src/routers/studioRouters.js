@@ -1,12 +1,12 @@
 const Router = require('express');
 const studioControllers = require('../controllers/studioController');
-const { validateTitle } = require('../middleware/validate.mw');
+const { validate } = require('../middleware');
 
 const router = new Router();
 
 router
 .route('/')
-.post(validateTitle, studioControllers.createStudio)
+.post(validate.validateTitle, studioControllers.createStudio)
 .get(studioControllers.getStudios)
 .put(studioControllers.updateStudio);
 
